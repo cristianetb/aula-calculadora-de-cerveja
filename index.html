@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titulo1">BeerCalc</h1>
+    <h1 id="titulo2">Calculadora de Breja</h1>
+    <h2>Instruçoes</h2>
+
+    <ol>
+        <li>Descreva os volumes</li>
+        <li>Descreva os preços</li>
+        <li>Clieque no botão e compare</li>
+    </ol>
+    
+    <div class="beer1">
+        <h3>Cerveja 1</h3>
+        <label for="">Quantidade</label>
+        <input type="text" id="quant1" placeholder="ml"><br>
+        <label>Preço</label>
+        <input type="text" id="price1" placeholder="R$"> 
+    </div>
+    <br>
+    <div class="beer2">
+        <h3>Cerveja 2</h3>
+        <label for="">Quantidade</label>
+        <input type="text" id="quant2" placeholder="ml"><br>
+        <label>Preço</label>
+        <input type="text" id="price2" placeholder="R$"> 
+    </div>
+    <br>
+    <button id="calcButton">Calcular</button>
+    <div id="result">
+        <h4>Campo de resultado</h4>
+    </div>
+
+    <style>
+        h1{
+            color: #666;
+            text-align: center
+        }
+        .beer1{
+            border-style: solid;
+            border-width: 5px;
+            border-color: blueviolet;
+        }
+        .beer2{
+            border-style: solid;
+            border-width: 5px;
+            border-color: blue;
+        }
+        #titulo1{
+            font-style: italic;
+            background-color: orange;
+        }
+
+    </style>
+    <script>
+        // definir variáveis 
+        const calcButton = document.getElementById("calcButton")
+        calcButton.addEventListener("click", function (){
+            console.log("click")
+            // pegar volume de cerveja 1 e dividir pelo preço
+            const beer1volume = document.getElementById("quant1").value
+            const beer1price = document.getElementById("price1").value
+
+            const calcBeer1 = parseFloat (beer1price) / parseFloat (beer1volume) 
+                        
+            const beer2volume = document.getElementById("quant2").value
+            const beer2price = document.getElementById("price2").value
+            
+            const calcBeer2 = parseFloat (beer2price) / parseFloat (beer2volume)
+
+            const result = document.getElementById("result")
+            result.innerText = "A cerveja 1 tá valendo " + calcBeer1 + " por litro" + " \n A cerveja 2 tá valendo " + calcBeer2 + " por litro" 
+            
+        })
+
+        
+    </script>
+</body>
+</html>
